@@ -1,0 +1,13 @@
+const express = require('express');
+const protect = require('../middleware/auth');
+const authorize = require('../middleware/authorize');
+const approvedFarmer = require('../middleware/approvedFarmer');
+const controller = require('../controllers/weeklyStockController');
+const router = express.Router();
+router.use(protect, authorize('farmer'), approvedFarmer);
+router.get('/', controller.list);
+router.post('/', controller.create);
+router.patch('/:id', controller.update);
+router.post('/:id/apply', controller.apply);
+router.delete('/:id', controller.remove);
+module.exports = router;

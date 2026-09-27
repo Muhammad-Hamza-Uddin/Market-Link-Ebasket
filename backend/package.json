@@ -1,0 +1,29 @@
+{
+  "name": "marketlink-backend",
+  "version": "1.0.0",
+  "description": "REST API for the MarketLink TechWiz project",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "seed": "node src/seed/seed.js",
+    "check": "node scripts/checkSyntax.js",
+    "test:integration": "node scripts/integrationTest.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.18.1",
+    "multer": "^2.4.0"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^10.2.3",
+    "nodemon": "^3.1.10"
+  }
+}

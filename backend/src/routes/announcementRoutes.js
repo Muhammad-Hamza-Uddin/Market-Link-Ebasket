@@ -1,0 +1,10 @@
+const express = require('express');
+const protect = require('../middleware/auth');
+const authorize = require('../middleware/authorize');
+const { listActive, listAll, create, update } = require('../controllers/announcementController');
+const router = express.Router();
+router.get('/', protect.optional, listActive);
+router.get('/admin', protect, authorize('admin'), listAll);
+router.post('/', protect, authorize('admin'), create);
+router.patch('/:id', protect, authorize('admin'), update);
+module.exports = router;
